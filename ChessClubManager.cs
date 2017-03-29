@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ChessClubManager
+{
+    class ChessClubManager
+    {
+        List<Player> player = new List<Player>(); 
+
+
+        public void addPlayer(string fName, string lName, double rating=800)
+        {
+            player.Add(new Player(fName, lName, rating));
+        }
+
+        public void removePlayer(string fName, string lName)
+        {
+            for (int i = 0; i < player.Count; i++)
+            {
+                if ((player[i].firstName == fName) && (player[i].lastName == lName))
+                {
+                    player.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
+        public List<Player> rankPlayers()
+        { 
+            List<Player> rankedList = new List<Player>;
+
+            for(int i = 0; i < player.Count; i++)
+            {
+                if(rankedList.Count == 0)
+                {
+                    rankedList.Insert(0, player[i]);
+                }
+            }
+
+            return rankedList;
+        }
+    }
+}
