@@ -28,17 +28,9 @@ namespace ChessClubManager
         }
 
         public List<Player> rankPlayers()
-        { 
-            List<Player> rankedList = new List<Player>;
-
-            for(int i = 0; i < player.Count; i++)
-            {
-                if(rankedList.Count == 0)
-                {
-                    rankedList.Insert(0, player[i]);
-                }
-            }
-
+        {
+            List<Player> rankedList = player;
+            rankedList.Sort();
             return rankedList;
         }
     }

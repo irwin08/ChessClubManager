@@ -5,12 +5,16 @@ using System.Text;
 
 namespace ChessClubManager
 {
-    class Player
+    class Player : IComparable<Player>
     {
         //private members
        
         private string _firstName;
         private string _lastName;
+
+        private int _wins;
+        private int _losses;
+        private int _draws;
 
         private double _rating;
 
@@ -52,6 +56,42 @@ namespace ChessClubManager
             }
         }
 
+        public int wins
+        {
+            get
+            {
+                return _wins;
+            }
+            set
+            {
+                _wins = value;
+            }
+        }
+
+        public int losses
+        {
+            get
+            {
+                return _losses;
+            }
+            set
+            {
+                _losses = value;
+            }
+        }
+
+        public int draws
+        {
+            get
+            {
+                return _draws;
+            }
+            set
+            {
+                _draws = value;
+            }
+        }
+
         //public methods
 
         public Player(string fName, string lName, double rating)
@@ -59,6 +99,10 @@ namespace ChessClubManager
             _firstName = fName;
             _lastName = lName;
             _rating = rating;
+
+            _wins = 0;
+            _losses = 0;
+            _draws = 0;
         }
 
         public static void updateRatings(Player winner, Player loser, bool draw)
@@ -90,6 +134,33 @@ namespace ChessClubManager
 
             winner.rating = updatedWinnerRating;
             loser.rating = updatedLoserRating;
+        }
+
+        public int CompareTo(Player other)
+        {
+            if (other == null)
+                return 1;
+            return _rating.CompareTo(other.rating);
+        }
+
+        public static bool operator > (Player operand1, Player operand2)
+        {
+            return operand1.CompareTo(operand2) == 1;
+        }
+
+        public static bool operator < (Player operand1, Player operand2)
+        {
+            return operand1.CompareTo(operand2) == -1;
+        }
+
+        public static bool operator >= (Player operand1, Player operand2)
+        {
+            return operand1.CompareTo(operand2) >= 0;
+        }
+
+        public static bool operator <=(Player operand1, Player operand2)
+        {
+            return operand1.CompareTo(operand2) <= 0;
         }
 
     }
