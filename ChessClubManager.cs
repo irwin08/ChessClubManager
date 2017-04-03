@@ -19,7 +19,7 @@ namespace ChessClubManager
         {
             for (int i = 0; i < player.Count; i++)
             {
-                if ((player[i].firstName == fName) && (player[i].lastName == lName))
+                if ((player[i].firstName.Equals(fName)) && (player[i].lastName.Equals(lName)))
                 {
                     player.RemoveAt(i);
                     break;
