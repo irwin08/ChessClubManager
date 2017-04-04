@@ -78,8 +78,10 @@
             this.losses,
             this.draws,
             this.rating});
+            this.playersList.FullRowSelect = true;
             this.playersList.GridLines = true;
             this.playersList.Location = new System.Drawing.Point(3, 3);
+            this.playersList.MultiSelect = false;
             this.playersList.Name = "playersList";
             this.playersList.Size = new System.Drawing.Size(369, 250);
             this.playersList.TabIndex = 2;

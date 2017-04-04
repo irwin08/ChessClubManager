@@ -18,6 +18,8 @@ namespace ChessClubManager
             InitializeComponent();
 
             manager = new ChessClubManager();
+
+            updateListView();
         }
 
         private void playersTab_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace ChessClubManager
 
                 foreach(int i in indexToRemove)
                 {
+                    //Remove player is all screwy, passing the wrong values for some reason. Something to do with pass-by-reference vs. pass-by-value?? I wish I was using C++...
                     manager.removePlayer(manager.rankPlayers()[i].firstName, manager.rankPlayers()[i].lastName);
                 }
                 item.Remove(); 
