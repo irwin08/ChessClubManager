@@ -24,14 +24,21 @@ namespace ChessClubManager
 
         public void removePlayer(string fName, string lName)
         {
-            for (int i = 0; i < player.Count; i++ )
+            List<int> index = new List<int>();
+            int count = 0;
+            foreach (Player p in player)
             {
-                if ((String.Compare(fName, player[i].firstName) == 0) && (String.Compare(lName, player[i].lastName) == 0))
+                if ((fName.CompareTo(p.firstName) == 0) && (lName.CompareTo(p.lastName) == 0))
                 {
-                    removeFromFile(player[i]);
-                    player.RemoveAt(i);
-                    i--;
+                    index.Add(count);
                 }
+                count++;
+            }
+
+            foreach (int i in index)
+            {
+                removeFromFile(player[i]);
+                player.RemoveAt(i);
             }
         }
 

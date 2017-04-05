@@ -49,25 +49,36 @@ namespace ChessClubManager
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            
-            foreach (ListViewItem item in playersList.SelectedItems)
-            {
-                int count = 0;
-                List<int> indexToRemove = new List<int>();
-                foreach (Player player in manager.rankPlayers())
-                {
-                    if (item.Text.Equals(player.firstName))
-                        indexToRemove.Add(count);
-                    count++;
-                }
+            string itemName = playersList.SelectedItems[0].Text;
 
-                foreach(int i in indexToRemove)
-                {
-                    //Remove player is all screwy, passing the wrong values for some reason. Something to do with pass-by-reference vs. pass-by-value?? I wish I was using C++...
-                    manager.removePlayer(manager.rankPlayers()[i].firstName, manager.rankPlayers()[i].lastName);
+            List<int> indexToRemove = new List<int>();
+            for (int i = 0; i < manager.rankPlayers().Count; i++)
+            {
+                string fName = manager.rankPlayers()[i].firstName;
+                string lName = manager.rankPlayers()[i].lastName;
+                if (fName.CompareTo(itemName) == 0)
+                { 
+                    manager.removePlayer(fName, lName);
+                    //i--;
                 }
-                item.Remove(); 
             }
+
+            int count2 = 0;
+            List<int> indexToRemove2 = new List<int>();
+            foreach(ListViewItem p in playersList.Items)
+            {
+                if(itemName.Equals(p.Text))
+                {
+                    indexToRemove2.Add(count2);
+                }
+                count2++;
+            }
+
+            foreach(int i in indexToRemove2)
+            {
+                playersList.Items[i].Remove();
+            }
+            
 
             updateListView();
         }

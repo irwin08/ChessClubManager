@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ChessClubManager
 {
+    //problem with icomparable is causing mess, rankedplayers not being sorted properly
     class Player : IComparable<Player>
     {
         //private members
@@ -140,6 +141,7 @@ namespace ChessClubManager
         {
             if (other == null)
                 return 1;
+            if(_rating.CompareTo)
             return _rating.CompareTo(other.rating);
         }
 

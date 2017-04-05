@@ -162,7 +162,7 @@
             this.ClientSize = new System.Drawing.Size(407, 335);
             this.Controls.Add(this.tabControl);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Chess Club Manager";
             this.tabControl.ResumeLayout(false);
             this.playersTab.ResumeLayout(false);
             this.gamesTab.ResumeLayout(false);
