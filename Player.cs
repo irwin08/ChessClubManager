@@ -6,7 +6,7 @@ using System.Text;
 namespace ChessClubManager
 {
     //problem with icomparable is causing mess, rankedplayers not being sorted properly
-    class Player : IComparable<Player>
+    public class Player : IComparable<Player>
     {
         //private members
        
@@ -141,8 +141,21 @@ namespace ChessClubManager
         {
             if (other == null)
                 return 1;
-            if(_rating.CompareTo)
-            return _rating.CompareTo(other.rating);
+            if (_rating.CompareTo(other.rating) == 0)
+            {
+                if (_firstName[0].CompareTo(other.firstName[0]) == 0)
+                {
+                    return _firstName[1].CompareTo(other.firstName[1]);
+                }
+                else
+                {
+                    return _firstName[0].CompareTo(other.firstName[0]);
+                }
+            }
+            else
+            {
+                return _rating.CompareTo(other.rating);
+            }
         }
 
         public static bool operator > (Player operand1, Player operand2)

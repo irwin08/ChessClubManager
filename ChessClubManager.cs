@@ -5,9 +5,10 @@ using System.Text;
 
 namespace ChessClubManager
 {
-    class ChessClubManager
+    public class ChessClubManager
     {
         List<Player> player = new List<Player>();
+        List<Game> game = new List<Game>();
 
 
         public ChessClubManager()

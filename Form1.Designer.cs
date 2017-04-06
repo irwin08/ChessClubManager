@@ -40,7 +40,14 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.gamesTab = new System.Windows.Forms.TabPage();
-            this.gamesList = new System.Windows.Forms.ListBox();
+            this.addGameButton = new System.Windows.Forms.Button();
+            this.gamesList = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl.SuspendLayout();
             this.playersTab.SuspendLayout();
             this.gamesTab.SuspendLayout();
@@ -116,6 +123,7 @@
             // rating
             // 
             this.rating.Text = "Rating";
+            this.rating.Width = 68;
             // 
             // removeButton
             // 
@@ -139,6 +147,7 @@
             // 
             // gamesTab
             // 
+            this.gamesTab.Controls.Add(this.addGameButton);
             this.gamesTab.Controls.Add(this.gamesList);
             this.gamesTab.Location = new System.Drawing.Point(4, 22);
             this.gamesTab.Name = "gamesTab";
@@ -147,13 +156,64 @@
             this.gamesTab.Text = "Games";
             this.gamesTab.UseVisualStyleBackColor = true;
             // 
+            // addGameButton
+            // 
+            this.addGameButton.Location = new System.Drawing.Point(147, 259);
+            this.addGameButton.Name = "addGameButton";
+            this.addGameButton.Size = new System.Drawing.Size(75, 23);
+            this.addGameButton.TabIndex = 4;
+            this.addGameButton.Text = "Add";
+            this.addGameButton.UseVisualStyleBackColor = true;
+            this.addGameButton.Click += new System.EventHandler(this.addGameButton_Click);
+            // 
             // gamesList
             // 
-            this.gamesList.FormattingEnabled = true;
+            this.gamesList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.gamesList.FullRowSelect = true;
+            this.gamesList.GridLines = true;
             this.gamesList.Location = new System.Drawing.Point(3, 3);
+            this.gamesList.MultiSelect = false;
             this.gamesList.Name = "gamesList";
-            this.gamesList.Size = new System.Drawing.Size(369, 277);
-            this.gamesList.TabIndex = 0;
+            this.gamesList.Size = new System.Drawing.Size(369, 250);
+            this.gamesList.TabIndex = 3;
+            this.gamesList.UseCompatibleStateImageBehavior = false;
+            this.gamesList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "First Name";
+            this.columnHeader1.Width = 64;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Last Name";
+            this.columnHeader2.Width = 63;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "First Name";
+            this.columnHeader3.Width = 62;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Last Name";
+            this.columnHeader4.Width = 64;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Result";
+            this.columnHeader5.Width = 43;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Date";
+            this.columnHeader6.Width = 69;
             // 
             // Form1
             // 
@@ -174,7 +234,6 @@
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage gamesTab;
-        private System.Windows.Forms.ListBox gamesList;
         private System.Windows.Forms.TabPage playersTab;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button addButton;
@@ -185,6 +244,14 @@
         private System.Windows.Forms.ColumnHeader losses;
         private System.Windows.Forms.ColumnHeader draws;
         private System.Windows.Forms.ColumnHeader rating;
+        private System.Windows.Forms.ListView gamesList;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button addGameButton;
 
     }
 }

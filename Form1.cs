@@ -54,8 +54,9 @@ namespace ChessClubManager
             List<int> indexToRemove = new List<int>();
             for (int i = 0; i < manager.rankPlayers().Count; i++)
             {
-                string fName = manager.rankPlayers()[i].firstName;
-                string lName = manager.rankPlayers()[i].lastName;
+                List<Player> playersByRank = manager.rankPlayers();
+                string fName = playersByRank[i].firstName;
+                string lName = playersByRank[i].lastName;
                 if (fName.CompareTo(itemName) == 0)
                 { 
                     manager.removePlayer(fName, lName);
@@ -102,5 +103,29 @@ namespace ChessClubManager
                 playersList.Items.Add(addPlayer);
             }
         }
+
+        private void addGameButton_Click(object sender, EventArgs e)
+        {
+            AddGameForm gameForm = new AddGameForm(manager);
+
+            if (gameForm.ShowDialog(this) == DialogResult.OK)
+            {
+                if (gameForm.whiteWinRadio.Checked)
+                { 
+                    
+                }
+                else if(gameForm.blackWinRadio.Checked)
+                {
+                
+                }
+                else if (gameForm.drawRadio.Checked)
+                {
+                
+                }
+                updateListView();
+            }
+        }
+
+      
     }
 }
