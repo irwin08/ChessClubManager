@@ -48,5 +48,10 @@ namespace ChessClubManager
         {
             DialogResult = DialogResult.OK;
         }
+
+        private void whiteList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

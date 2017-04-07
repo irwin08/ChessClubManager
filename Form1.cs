@@ -102,6 +102,20 @@ namespace ChessClubManager
                 ListViewItem addPlayer = new ListViewItem(addPlayerString);
                 playersList.Items.Add(addPlayer);
             }
+
+            gamesList.Items.Clear();
+            foreach (Game newGame in manager.getGames())
+            {
+                string[] addGameString = new string[4];
+
+                addGameString[0] = newGame.whiteName;
+                addGameString[1] = newGame.blackName;
+                addGameString[2] = newGame.result.ToString();
+                addGameString[3] = newGame.date.ToString();
+
+                ListViewItem addGame = new ListViewItem(addGameString);
+                gamesList.Items.Add(addGame);
+            }
         }
 
         private void addGameButton_Click(object sender, EventArgs e)
@@ -111,19 +125,48 @@ namespace ChessClubManager
             if (gameForm.ShowDialog(this) == DialogResult.OK)
             {
                 if (gameForm.whiteWinRadio.Checked)
-                { 
-                    
+                {
+                    manager.addGame(gameForm.whiteList.SelectedItems[0].Text, gameForm.blackList.SelectedItems[0].Text, 1, gameForm.datePicker.Value);
                 }
                 else if(gameForm.blackWinRadio.Checked)
                 {
-                
+                    manager.addGame(gameForm.whiteList.SelectedItems[0].Text, gameForm.blackList.SelectedItems[0].Text, 0, gameForm.datePicker.Value);
                 }
                 else if (gameForm.drawRadio.Checked)
                 {
-                
+                    manager.addGame(gameForm.whiteList.SelectedItems[0].Text, gameForm.blackList.SelectedItems[0].Text, 0.5, gameForm.datePicker.Value);
                 }
                 updateListView();
             }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            List<Player> pl = manager.rankPlayers();
+            System.IO.StreamWriter file = new System.IO.StreamWriter("players.csv");
+            foreach (Player aPlayer in pl)
+            {
+                string line = aPlayer.firstName + "," + aPlayer.lastName + "," + aPlayer.wins.ToString() + "," + aPlayer.losses.ToString() + "," + aPlayer.draws.ToString() + "," + aPlayer.rating.ToString();
+
+                
+                file.WriteLine(line);
+
+               
+            }
+            file.Close();
+
+            List<Game> gl = manager.getGames();
+            System.IO.StreamWriter file2 = new System.IO.StreamWriter("games.csv");
+            foreach (Game g in gl)
+            {
+                string line = g.whiteName + "," + g.blackName + "," + g.result.ToString() + "," + g.date.ToString();
+
+                
+                file2.WriteLine(line);
+
+                
+            }
+            file2.Close();
         }
 
       

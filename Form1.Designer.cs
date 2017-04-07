@@ -43,9 +43,7 @@
             this.addGameButton = new System.Windows.Forms.Button();
             this.gamesList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl.SuspendLayout();
@@ -170,40 +168,28 @@
             // 
             this.gamesList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
             this.gamesList.FullRowSelect = true;
             this.gamesList.GridLines = true;
-            this.gamesList.Location = new System.Drawing.Point(3, 3);
+            this.gamesList.Location = new System.Drawing.Point(-4, 0);
             this.gamesList.MultiSelect = false;
             this.gamesList.Name = "gamesList";
-            this.gamesList.Size = new System.Drawing.Size(369, 250);
+            this.gamesList.Size = new System.Drawing.Size(379, 250);
             this.gamesList.TabIndex = 3;
             this.gamesList.UseCompatibleStateImageBehavior = false;
             this.gamesList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "First Name";
-            this.columnHeader1.Width = 64;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Last Name";
-            this.columnHeader2.Width = 63;
+            this.columnHeader1.Text = "White Name";
+            this.columnHeader1.Width = 107;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "First Name";
-            this.columnHeader3.Width = 62;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Last Name";
-            this.columnHeader4.Width = 64;
+            this.columnHeader3.Text = "Black Name";
+            this.columnHeader3.Width = 102;
             // 
             // columnHeader5
             // 
@@ -213,7 +199,7 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Date";
-            this.columnHeader6.Width = 69;
+            this.columnHeader6.Width = 112;
             // 
             // Form1
             // 
@@ -223,6 +209,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Form1";
             this.Text = "Chess Club Manager";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.tabControl.ResumeLayout(false);
             this.playersTab.ResumeLayout(false);
             this.gamesTab.ResumeLayout(false);
@@ -246,9 +233,7 @@
         private System.Windows.Forms.ColumnHeader rating;
         private System.Windows.Forms.ListView gamesList;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button addGameButton;

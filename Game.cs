@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ChessClubManager
 {
-    public class Game
+    public class Game : IComparable<Game>
     {
         private DateTime _date;
         private string _whiteName;
@@ -22,7 +22,7 @@ namespace ChessClubManager
             }
             get
             {
-                return date;
+                return _date;
             }
         }
 
@@ -68,6 +68,11 @@ namespace ChessClubManager
             _blackName = bName;
             _result = r;
             _date = d;
+        }
+
+        public int CompareTo(Game other)
+        {
+            return _date.CompareTo(other.date);
         }
     }
 }
