@@ -145,7 +145,14 @@ namespace ChessClubManager
             {
                 if (_firstName[0].CompareTo(other.firstName[0]) == 0)
                 {
-                    return _firstName[1].CompareTo(other.firstName[1]);
+                    if (_firstName[1].CompareTo(other.firstName[1]) == 0)
+                    {
+                        return _firstName[2].CompareTo(other.firstName[2]);
+                    }
+                    else
+                    {
+                        return _firstName[1].CompareTo(other.firstName[1]);
+                    }
                 }
                 else
                 {
