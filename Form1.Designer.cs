@@ -176,7 +176,7 @@
             this.gamesList.Location = new System.Drawing.Point(-4, 0);
             this.gamesList.MultiSelect = false;
             this.gamesList.Name = "gamesList";
-            this.gamesList.Size = new System.Drawing.Size(379, 250);
+            this.gamesList.Size = new System.Drawing.Size(376, 250);
             this.gamesList.TabIndex = 3;
             this.gamesList.UseCompatibleStateImageBehavior = false;
             this.gamesList.View = System.Windows.Forms.View.Details;
@@ -184,22 +184,22 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "White Name";
-            this.columnHeader1.Width = 107;
+            this.columnHeader1.Width = 128;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Black Name";
-            this.columnHeader3.Width = 102;
+            this.columnHeader3.Width = 117;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Result";
-            this.columnHeader5.Width = 43;
+            this.columnHeader5.Width = 48;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Date";
-            this.columnHeader6.Width = 112;
+            this.columnHeader6.Width = 82;
             // 
             // Form1
             // 
@@ -207,6 +207,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 335);
             this.Controls.Add(this.tabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Chess Club Manager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);

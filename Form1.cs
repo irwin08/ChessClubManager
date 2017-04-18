@@ -87,21 +87,22 @@ namespace ChessClubManager
         private void updateListView()
         {
             playersList.Items.Clear();
-            foreach(Player newPlayer in manager.rankPlayers())
+
+            for (int i = manager.rankPlayers().Count-1; i >= 0; i--)
             {
-
+                Player newPlayer = manager.rankPlayers()[i];
                 string[] addPlayerString = new string[6];
-
+                
                 addPlayerString[0] = newPlayer.firstName;
                 addPlayerString[1] = newPlayer.lastName;
                 addPlayerString[2] = newPlayer.wins.ToString();
                 addPlayerString[3] = newPlayer.losses.ToString();
                 addPlayerString[4] = newPlayer.draws.ToString();
-                addPlayerString[5] = newPlayer.rating.ToString();
-
+                addPlayerString[5] = newPlayer.rating.ToString("#");
+                
                 ListViewItem addPlayer = new ListViewItem(addPlayerString);
                 playersList.Items.Add(addPlayer);
-            }
+                }
 
             gamesList.Items.Clear();
             foreach (Game newGame in manager.getGames())
@@ -111,7 +112,7 @@ namespace ChessClubManager
                 addGameString[0] = newGame.whiteName;
                 addGameString[1] = newGame.blackName;
                 addGameString[2] = newGame.result.ToString();
-                addGameString[3] = newGame.date.ToString();
+                addGameString[3] = newGame.date.ToString("d");
 
                 ListViewItem addGame = new ListViewItem(addGameString);
                 gamesList.Items.Add(addGame);

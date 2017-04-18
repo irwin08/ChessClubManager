@@ -108,7 +108,7 @@ namespace ChessClubManager
 
         public static void updateRatings(Player winner, Player loser, bool draw)
         {
-            double kFactor = 32;
+            double kFactor = 200;
 
             double winnerTransformedRating = Math.Pow(10, (winner.rating/400));
             double loserTransformedRating = Math.Pow(10, (loser.rating / 400));
